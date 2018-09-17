@@ -1,0 +1,19 @@
+<h4><% @post.inspect %></h4>
+
+<div align="center">
+	<%= form_for :post, url: post_path(@post), method: :patch do |form| %>
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title, :value => @post.title %>
+	  </p>
+	 
+	  <p>
+	    <%= form.label :body %><br>
+	    <%= form.text_area :body, :value => @post.body %>
+	  </p>
+	 
+	  <p>
+	    <%= form.submit({:class => 'btn btn-primary'}) %>
+	  </p>
+	<% end %>
+</div>

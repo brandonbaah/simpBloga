@@ -1,0 +1,21 @@
+
+<%= form_for :post, url: posts_path do |form| %>
+  <% if @post.errors.any?%>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
