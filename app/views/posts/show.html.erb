@@ -2,8 +2,50 @@
 	<h2><%= @post.title %></h2>
 	<p><%= @post.body %></p>
 	<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-primary' %>
-	<%= link_to "Delete", post_path(@post), 
+	<%= link_to "Delete", post_path(@post),
 					method: :delete,
 					data: {confirm: 'Are you sure?'},
 					:class => 'btn btn-danger' %>
 </div>
+
+
+<!-- <center>
+	<form style="margin-top:100px">
+		<input style="height:30px; width:400px; padding:10px" placeholder="Type Your Age..." type="number" name="number" id="number" />
+		<input style="height:35px" type="button" value="Find Year" id="button" />
+		<center><p id="year">Year</p></center>
+	</form>
+</center>
+
+<script type="text/javascript">
+
+	function calculate(){
+
+		var number = document.getElementById("number").value;
+
+		if (number == "" || number == 0 ){
+
+			window.alert("Please type your correct age!");
+			return;
+		}
+
+		var current_year = (new Date()).getFullYear();
+		document.getElementById("year").style.display = "block";
+
+
+		var birthyear = current_year - number;
+
+		document.getElementById("year").innerHTML = "Your birthday is " + birthyear;
+
+
+
+	}
+
+
+
+	document.getElementById("year").style.display = "none";
+
+	document.getElementById("button").onclick = function(){ calculate(); };
+
+
+</script> -->

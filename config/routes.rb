@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :posts
 
 
-  root 'posts#index'
+  root 'posts#main_splash'
 end

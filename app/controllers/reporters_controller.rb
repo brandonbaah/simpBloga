@@ -1,23 +1,16 @@
-class PostsController < ApplicationController
-
-# http_basic_authenticate_with name: "dhh", password: "secret", only: [:update, :destroy]
-	def main_splash
-		offset = rand(Post.count)
-		@highlight_post = Post.offset(offset).first
-		render "main_splash.html.erb"
-	end
+class ReportersController < ApplicationController
 
 	def index
-		@posts = Post.all
+		@reporters = Reporter.all
 	end
 
 	def new
-		@post = Post.new
+		@post = Reporter.new
 	end
 
 	def create
 		# render plain: params[:post].inspect
-		@post = Post.new(post_params)
+		@post = Reporter.new(post_params)
 
 		# Less efficient way of saving. Does not account for user entering empty record
 		# @post.save
@@ -31,27 +24,27 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@reporter = Reporter.find(params[:id])
 	end
 
 	def edit
-		@post = Post.find(params[:id])
+		@reporter = Reporter.find(params[:id])
 	end
 
 	def update
-		@post = Post.find(params[:id])
+		@reporter = Reporter.find(params[:id])
 
 		# Less efficient way of updating. Does not account for user entering empty record
 		# @post.update(
 		# 	title: params[:title],
 		# 	body: params[:body]
 		# )
-
+		
 
 		# redirect_to @post
 
 
-		if(@post.update(post_params))
+		if(@reporter.update(post_params))
 			redirect_to @post
 		else
 			render 'edit'
@@ -60,16 +53,16 @@ class PostsController < ApplicationController
 
 	def destroy
 
-	@post = Post.find(params[:id])
-
+	@post = Reporter.find(params[:id])
+	
 	@post.destroy
 
-	redirect_to posts_path
-
+	redirect_to posts_path	
+		
 	end
 
 	private def post_params
-
+	
 		params.require(:post).permit(:title, :body)
 	end
 

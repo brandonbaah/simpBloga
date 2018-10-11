@@ -1,10 +1,15 @@
-<h1 align="center">SimpleBlog Posts</h1>
 
+<h1 align="center">SimpBloga</h1>
+<div align = center>
 <% @posts.each do |post| %>
-	<div class="well">
-		<h4><%= post.title %></h4>
-		<p><%= post.body %></p>
-		<%= link_to "Read More", post_path(post), :class => 'btn btn-primary' %>
-	</div>
+<div class="card mb-3">
+  post
+  <%= image_tag("#{post.image}", :alt => "rss feed") %>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.body%></p>
+    <%= link_to "Read More", post_path(post), :class => 'btn btn-primary btn-sm' %>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
 <% end %>
-
